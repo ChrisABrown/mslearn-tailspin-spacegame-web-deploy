@@ -89,7 +89,7 @@ stages:
       vmImage: 'ubuntu-20.04'
     environment: dev
     variables:
-    - group: Release
+    - group: 'Web App Release'
     strategy:
       runOnce:
         deploy:
