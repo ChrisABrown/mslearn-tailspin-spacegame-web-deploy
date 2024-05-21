@@ -113,9 +113,12 @@ stages:
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
   - job: RunUITests
     dependsOn: Deploy
+    displayName: 'Run UI tests'
     pool:
       vmImage: 'windows-2019'
-    steps:
+    variables:
+    - group: 'Release'
+    steps: 
     - task: UseDotNet@2
       displayName: 'Use .NET SDK $(dotnetSdkVersion)'
       inputs:
